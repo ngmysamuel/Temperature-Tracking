@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <title>Cloud Server</title>
+</head>
+
+<body>
+    <h1>Global Temperatures</h1>
+    <table id="table" cellspacing="1" cellpadding="3" border="1">
+		<thead>
+			<tr>
+				<th>Tracker ID</th>
+				<th>Tracker Name</th>
+				<th>Temperature</th>
+				<th>Is Intruder</th>
+				<th>District</th>
+				<th>Time Stamp</th>
+				<th>Is sick</th>
+			</tr>
+		<thead>
+		<tbody>
+		
+		</tbody>
+	</table>
+	<button id="btnButton">Refresh</button>
+	<p>
+	Global Lockdown status: <label id="globallockdown"></label>
+	<br>
+	Local Lockdown status: <label id="locallockdown"></label>
+	<br>
+	<button id="statusButton">Refresh Status</button>
+	</p>
+	<button id="actGlo" disabled="true">Activate Global Lockdown</button>
+	<button id="deactGlo" disabled="true">Deactivate Global Lockdown</button>
+	<button id="deactLoc" disabled="true">Deactivate Local Lockdown</button>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<table id="eventTable" cellspacing="1" cellpadding="3" border="1">
+		<thead>
+			<tr>
+				<th>Tracker ID</th>
+				<th>Tracker Name</th>
+				<th>District</th>
+				<th>Time Stamp</th>
+				<th>Event</th>
+			</tr>
+			<thead>
+			<tbody>
+
+			</tbody>
+	</table>
+	<button id="btnButtonEvent">Refresh</button>
+</body>
+<script src="static/js/home.js"></script>
+</html>

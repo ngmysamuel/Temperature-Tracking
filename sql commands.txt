@@ -1,0 +1,70 @@
+CREATE TABLE `temperature` (`prime_key` INTEGER PRIMARY KEY AUTOINCREMENT, `count` INTEGER NOT NULL, `trackername` CHARACTER(5) NOT NULL, `temp` INTEGER NOT NULL, `radioGroup` INTEGER NOT NULL, `isintruder` CHARACTER(10) NOT NULL, `deviceid` CHARACTER(25) NOT NULL, `timestamp` DATETIME NOT NULL, `tocloud` BOOLEAN DEFAULT 0 NOT NULL);
+
+
+CREATE TABLE `event` (`prime_key` INTEGER PRIMARY KEY AUTOINCREMENT, `trackername` CHARACTER(5) NOT NULL, `event` INTEGER NOT NULL, `radioGroup` CHARACTER(5) NOT NULL, `deviceid` CHARACTER(50) NOT NULL, `timestamp` DATETIME NOT NULL, `tocloud` BOOLEAN DEFAULT 0 NOT NULL);
+
+
+SELECT * FROM temperature;
+
+SELECT * FROM event;
+
+DELETE FROM temperature;
+
+DELETE FROM event;
+
+DROP TABLE temperature;
+	
+DROP TABLE event;
+
+sqlite3 temperature.db;
+
+SELECT name FROM PRAGMA_TABLE_INFO('temperature');
+
+SELECT name FROM PRAGMA_TABLE_INFO('event');
+
+
+
+
+
+
+MySQL: 
+
+CREATE TABLE `temperature` (
+  `prime_key` int(11) NOT NULL AUTO_INCREMENT,
+  `trackername` char(5) NOT NULL,
+  `temp` int(11) NOT NULL,
+  `radioGroup` int(11) NOT NULL,
+  `isintruder` char(10) NOT NULL,
+  `deviceid` char(30) NOT NULL,
+  `timestamp` datetime NOT NULL,
+  PRIMARY KEY (`prime_key`)
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `event` (
+  `prime_key` int(11) NOT NULL AUTO_INCREMENT,
+  `trackername` char(5) NOT NULL,
+  `radioGroup` char(11) NOT NULL,
+  `event` int(10) NOT NULL,
+  `deviceid` char(30) NOT NULL,
+  `timestamp` datetime NOT NULL,
+  PRIMARY KEY (`prime_key`)
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
+
+DROP TABLE temperature;
+
+DROP TABLE event;
+
+SELECT * FROM temperature;
+
+SELECT * FROM event;
+
+DELETE FROM temperature;
+
+DELETE FROM event;
+
+show tables;
+
+SELECT COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH 
+FROM information_schema.columns 
+WHERE table_schema = 'test' 
+AND table_name = 'event';

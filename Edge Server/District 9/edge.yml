@@ -1,0 +1,211 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger REST Article
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/api"
+
+# Paths supported by the server application
+paths:
+  /getData:
+    get:
+      operationId: "temperature.getData"
+      tags:
+        - "Temperature"
+      summary: "The temperature data structure supported by the server application"
+      description: "Read the list of temperature"
+      responses:
+        200:
+          description: "Successful read temperature list operation"
+          schema:
+            type: "array"
+            items:
+              properties:
+                id:
+                  type: "number"
+                devicename:
+                  type: "string"
+                temp:
+                  type: "number"
+                timestamp:
+                  type: "string"
+  /getEvent:
+    get:
+      operationId: "temperature.getEvent"
+      tags:
+        - "Temperature"
+      summary: "The temperature data structure supported by the server application"
+      description: "Read the list of temperature"
+      responses:
+        200:
+          description: "Successful read temperature list operation"
+          schema:
+            type: "array"
+            items:
+              properties:
+                id:
+                  type: "number"
+                devicename:
+                  type: "string"
+                temp:
+                  type: "number"
+                timestamp:
+                  type: "string"                  
+  /activatelocallockdown/{radioGroup}: 
+    get: 
+      description: "for edge processor to notify cloud of local lockdown activation"
+      operationId: temperature.activatelocallockdown
+      parameters:
+        - name: radioGroup
+          in: path
+          description: radioGroup
+          type: string
+          required: True
+      responses: 
+        200: 
+          description: "Successful create operation"
+          schema: 
+            items: 
+              properties: 
+                accountname: 
+                  type: string
+                balance: 
+                  type: string
+                checkingaccountid: 
+                  type: string
+            type: array
+      summary: "Create data with the 3 fields"
+      tags: 
+        - Data        
+        
+  /deactivatelocallockdown: 
+    get: 
+      description: "for cloud to update data.py of deactivation of local lockdown"
+      operationId: temperature.deactivatelocallockdown
+      responses: 
+        200: 
+          description: "Successful create operation"
+          schema: 
+            items: 
+              properties: 
+                accountname: 
+                  type: string
+                balance: 
+                  type: string
+                checkingaccountid: 
+                  type: string
+            type: array
+      summary: "Create data with the 3 fields"
+      tags: 
+        - Data       
+  /activategloballockdown: 
+    get: 
+      description: "for cloud to update edge of activation of global lockdown"
+      operationId: temperature.activategloballockdown
+      responses: 
+        200: 
+          description: "Successful create operation"
+          schema: 
+            items: 
+              properties: 
+                accountname: 
+                  type: string
+                balance: 
+                  type: string
+                checkingaccountid: 
+                  type: string
+            type: array
+      summary: "Create data with the 3 fields"
+      tags: 
+        - Data   
+  /deactivategloballockdown: 
+    get: 
+      description: "for cloud to update data.py as well as edge of deactivation of global lockdown"
+      operationId: temperature.deactivategloballockdown
+      responses: 
+        200: 
+          description: "Successful create operation"
+          schema: 
+            items: 
+              properties: 
+                accountname: 
+                  type: string
+                balance: 
+                  type: string
+                checkingaccountid: 
+                  type: string
+            type: array
+      summary: "Create data with the 3 fields"
+      tags: 
+        - Data                      
+  /getLocalStatus: 
+    get: 
+      description: "to get local status"
+      operationId: temperature.getLocalStatus
+      responses: 
+        200: 
+          description: "Successful create operation"
+          schema: 
+            items: 
+              properties: 
+                accountname: 
+                  type: string
+                balance: 
+                  type: string
+                checkingaccountid: 
+                  type: string
+            type: array
+      summary: "Create data with the 3 fields"
+      tags: 
+        - Data           
+  /getGlobalStatus: 
+    get: 
+      description: "to get local status"
+      operationId: temperature.getGlobalStatus
+      responses: 
+        200: 
+          description: "Successful create operation"
+          schema: 
+            items: 
+              properties: 
+                accountname: 
+                  type: string
+                balance: 
+                  type: string
+                checkingaccountid: 
+                  type: string
+            type: array
+      summary: "Create data with the 3 fields"
+      tags: 
+        - Data       
+  /handshake/{radioGroup}: 
+    get: 
+      description: "to get local status"
+      operationId: temperature.handshake
+      parameters:
+        - name: radioGroup
+          in: path
+          description: radioGroup
+          type: string
+          required: True
+      responses: 
+        200: 
+          description: "Successful create operation"
+          schema: 
+            items: 
+              properties: 
+                accountname: 
+                  type: string
+                balance: 
+                  type: string
+                checkingaccountid: 
+                  type: string
+            type: array
+      summary: "Create data with the 3 fields"
+      tags: 
+        - Data              
