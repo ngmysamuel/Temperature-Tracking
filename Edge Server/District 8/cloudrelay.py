@@ -3,12 +3,12 @@ import sqlite3
 import requests
 import json
 
-
+ip_address = **your IP**
 
 try:
 	conn = sqlite3.connect('temperature.db')
 	
-	base_uri = 'http://192.168.1.111:5000/'
+	base_uri = 'http://'+ ip_address + ':5000/'
 	globaltemperature_uri = base_uri + 'api/postData'
 	globalevent_uri = base_uri + 'api/postEvent'
 	headers = {'content-type': 'application/json'}

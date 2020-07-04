@@ -1,32 +1,3 @@
-CREATE TABLE `temperature` (`prime_key` INTEGER PRIMARY KEY AUTOINCREMENT, `count` INTEGER NOT NULL, `trackername` CHARACTER(5) NOT NULL, `temp` INTEGER NOT NULL, `radioGroup` INTEGER NOT NULL, `isintruder` CHARACTER(10) NOT NULL, `deviceid` CHARACTER(25) NOT NULL, `timestamp` DATETIME NOT NULL, `tocloud` BOOLEAN DEFAULT 0 NOT NULL);
-
-
-CREATE TABLE `event` (`prime_key` INTEGER PRIMARY KEY AUTOINCREMENT, `trackername` CHARACTER(5) NOT NULL, `event` INTEGER NOT NULL, `radioGroup` CHARACTER(5) NOT NULL, `deviceid` CHARACTER(50) NOT NULL, `timestamp` DATETIME NOT NULL, `tocloud` BOOLEAN DEFAULT 0 NOT NULL);
-
-
-SELECT * FROM temperature;
-
-SELECT * FROM event;
-
-DELETE FROM temperature;
-
-DELETE FROM event;
-
-DROP TABLE temperature;
-	
-DROP TABLE event;
-
-sqlite3 temperature.db;
-
-SELECT name FROM PRAGMA_TABLE_INFO('temperature');
-
-SELECT name FROM PRAGMA_TABLE_INFO('event');
-
-
-
-
-
-
 MySQL: 
 
 CREATE TABLE `temperature` (

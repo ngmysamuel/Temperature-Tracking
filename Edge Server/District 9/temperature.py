@@ -4,6 +4,7 @@ import socket
 
 localLockdown = False
 globalLockdown = False
+ip_address = **your IP**
 
 def getData():
 	
@@ -46,7 +47,7 @@ def activatelocallockdown(radioGroup):
 	global localLockdown
 	localLockdown = True
 	# rhub.py will call. Then here, we will notify cloud
-	req = requests.get("http://192.168.1.111:5000/api/activatelocallockdown/"+radioGroup) #calling cloud
+	req = requests.get("http://"+ ip_address +"/api/activatelocallockdown/"+radioGroup) #calling cloud
 
 def deactivatelocallockdown():
 	global localLockdown
@@ -74,7 +75,7 @@ def getGlobalStatus():
 
 def handshake(radioGroup):
 	myIP = get_ip_address()
-	requests.get("http://192.168.1.111:5000/api/handshake/"+radioGroup+"/"+myIP) #calling cloud
+	requests.get("http://"+ ip_address +"/api/handshake/"+radioGroup+"/"+myIP) #calling cloud
 
 def get_ip_address():
 	ip_address = ''

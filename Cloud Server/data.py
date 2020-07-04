@@ -156,7 +156,7 @@ def activategloballockdown():
 	for key in radioGroupToIp:
 		ipToCall = radioGroupToIp[key]
 		req = requests.get("http://"+ipToCall+":5000/api/activategloballockdown") #calling the edge
-	# req = requests.get("http://192.168.1.97:5000/api/activategloballockdown") #calling the edge
+	
 
 def deactivategloballockdown():
 	global globalLockdown
@@ -165,7 +165,7 @@ def deactivategloballockdown():
 	for key in radioGroupToIp:
 		ipToCall = radioGroupToIp[key]
 		req = requests.get("http://"+ipToCall+":5000/api/deactivategloballockdown") #calling the edge
-	# req = requests.get("http://192.168.1.97:5000/api/deactivategloballockdown") #calling the edge
+	
 	
 def getLocalStatus():    
 	global localLockdown
@@ -196,22 +196,3 @@ def handshake(radioGroup, myIp):
 
 
 
-def deleteData(person):
-	#person is defined in the parameter in the yml
-	global conn
-	CHECKINGACCOUNTID = person.get('CHECKINGACCOUNTID', None)
-	BALANCE = person.get('BALANCE', None)
-	print(BALANCE)
-	try:
-		with conn.cursor() as cursor:
-			sql = 'DELETE FROM checkingaccount WHERE CHECKINGACCOUNTID = %s;'
-			val = (CHECKINGACCOUNTID,)
-			print(val)
-			cursor.execute(sql, val)
-
-			print(cursor.rowcount, 'record deleted.')
-			conn.commit()
-
-	finally:
-		print()
-	#	  conn.close()
